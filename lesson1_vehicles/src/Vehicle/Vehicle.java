@@ -13,6 +13,7 @@ public abstract class Vehicle {
     private double travelTime;
     private int maxPassengers;
     private int avgSpeed;
+    private double traveledTime;
 
     public Vehicle() {
         this.name = null;
@@ -75,15 +76,20 @@ public abstract class Vehicle {
         this.traveledDistance = traveledDistance;
     }
 
-    public Vehicle travel (double distance){
-        this.travelTime = distance/this.avgSpeed;
+    public double getTraveledTime() {
+        return traveledTime;
+    }
 
-        System.out.println("You are about to travel " + distance + "kilometers");
-        System.out.println("Traveling will take about " + travelTime + "hours");
+    public void setTraveledTime(double traveledTime) {
+        this.traveledTime = traveledTime;
+    }
 
-        this.traveledDistance += distance;
+    public int getAvgSpeed() {
+        return avgSpeed;
+    }
 
-        return this;
+    public void setAvgSpeed(int avgSpeed) {
+        this.avgSpeed = avgSpeed;
     }
 
     public void printVehicleInfo() {
