@@ -1,4 +1,4 @@
-package Vehicle;
+package vehicle;
 
 public class Plane extends Vehicle {
     private double maxFlyingHeight;

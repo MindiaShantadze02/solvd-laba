@@ -1,4 +1,4 @@
-package Vehicle;
+package vehicle;
 
 public class Boat extends Vehicle{
     private String boatType;

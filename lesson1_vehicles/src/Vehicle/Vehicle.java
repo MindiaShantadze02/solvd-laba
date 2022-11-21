@@ -1,4 +1,4 @@
-package Vehicle;
+package vehicle;
 
 import java.lang.Math;
 

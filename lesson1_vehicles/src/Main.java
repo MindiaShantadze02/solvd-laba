@@ -1,7 +1,7 @@
-import Vehicle.Boat;
-import Vehicle.Bycicle;
-import Vehicle.Car;
-import Vehicle.Plane;
+import vehicle.Boat;
+import vehicle.Bycicle;
+import vehicle.Car;
+import vehicle.Plane;
 
 public class Main {
     public static void main(String[] args) {
