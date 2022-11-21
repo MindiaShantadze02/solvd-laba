@@ -5,10 +5,11 @@ public class Car extends Vehicle{
     private int horsePower;
     private int doorNumber;
 
-    public Car(int wheelCount, int horsePower, int doorNumber) {
-        this.wheelCount = wheelCount;
-        this.horsePower = horsePower;
-        this.doorNumber = doorNumber;
+    public Car() {
+        this.wheelCount = 0;
+        this.horsePower = 0;
+        this.doorNumber = 0;
+        this.type = "Ground Vehicle";
     }
 
     public Car(String name, String model, int releaseYear, int maxPassengers, int avgSpeed, int wheelCount, int horsePower, int doorNumber) {
@@ -16,5 +17,6 @@ public class Car extends Vehicle{
         this.wheelCount = wheelCount;
         this.horsePower = horsePower;
         this.doorNumber = doorNumber;
+        this.type = "Ground Vehicle";
     }
 }
