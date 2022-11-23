@@ -1,5 +1,7 @@
 package vehicle;
 
+import passenger.Passenger;
+
 public class Plane extends Vehicle {
     private double maxFlyingHeight;
 
@@ -13,11 +15,23 @@ public class Plane extends Vehicle {
             String model,
             int releaseYear,
             int maxPassengers,
-            int avgSpeed,
+            Passenger owner,
             double maxFlyingHeight
     ) {
-        super(name, model, releaseYear, maxPassengers, avgSpeed);
+        super(name, model, releaseYear, maxPassengers, owner);
         this.type = "Flying Vehicle";
         this.maxFlyingHeight = maxFlyingHeight;
+    }
+
+    public double getMaxFlyingHeight() {
+        return maxFlyingHeight;
+    }
+
+    public void setMaxFlyingHeight(double maxFlyingHeight) {
+        this.maxFlyingHeight = maxFlyingHeight;
+    }
+
+    public void move() {
+        System.out.println("The plane is flying");
     }
 }

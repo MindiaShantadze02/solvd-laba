@@ -1,6 +1,7 @@
 package vehicle;
 
 import java.lang.Math;
+import passenger.Passenger;
 
 public abstract class Vehicle {
     // initializing fields
@@ -9,32 +10,25 @@ public abstract class Vehicle {
     private String model;
     protected String type;
     private int releaseYear;
-    private int traveledDistance;
-    private double travelTime;
+    private Passenger owner;
     private int maxPassengers;
-    private int avgSpeed;
-    private double traveledTime;
-
     public Vehicle() {
         this.name = null;
         this.model = null;
         this.type = null;
         this.releaseYear = 0;
-        this.traveledDistance = 0;
         this.maxPassengers = 0;
-        this.avgSpeed = 0;
-        this.travelTime = 0;
+        this.owner = null;
     }
 
-    public Vehicle(String name, String model, int releaseYear, int maxPassengers, int avgSpeed) {
+    public Vehicle(String name, String model, int releaseYear, int maxPassengers, Passenger owner) {
         this.name = name;
         this.model = model;
         this.releaseYear = releaseYear;
         this.maxPassengers = maxPassengers;
-        this.avgSpeed = avgSpeed;
+        this.owner = owner;
     }
 
-    // data getters
     public String getId() {
         return id;
     }
@@ -51,15 +45,10 @@ public abstract class Vehicle {
         return releaseYear;
     }
 
-    public int getTraveledDistance() {
-        return traveledDistance;
-    }
-
     public String getType(){
         return this.type;
     };
 
-    // data setters
     public void setName(String name) {
         this.name = name;
     }
@@ -72,25 +61,19 @@ public abstract class Vehicle {
         this.releaseYear = releaseYear;
     }
 
-    public void setTraveledDistance(int traveledDistance) {
-        this.traveledDistance = traveledDistance;
+    public void setType(String type) {
+        this.type = type;
     }
 
-    public double getTraveledTime() {
-        return traveledTime;
+    public int getMaxPassengers() {
+        return maxPassengers;
     }
 
-    public void setTraveledTime(double traveledTime) {
-        this.traveledTime = traveledTime;
+    public void setMaxPassengers(int maxPassengers) {
+        this.maxPassengers = maxPassengers;
     }
 
-    public int getAvgSpeed() {
-        return avgSpeed;
-    }
-
-    public void setAvgSpeed(int avgSpeed) {
-        this.avgSpeed = avgSpeed;
-    }
+    public abstract void move();
 
     public void printVehicleInfo() {
         System.out.println("Name: " + this.getName());
