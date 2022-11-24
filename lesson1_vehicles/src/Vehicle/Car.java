@@ -1,5 +1,6 @@
 package vehicle;
 
+import exceptions.AgeException;
 import passenger.Passenger;
 
 import java.util.Objects;
@@ -48,7 +49,11 @@ public class Car extends Vehicle{
         this.wheelCount = wheelCount;
     }
 
-    public void move() {
+    public void move() throws AgeException {
+        if (this.getDriver().getAge() < 18) {
+            throw new AgeException("Driver should be at least 18 years old");
+        }
+
         System.out.println("Car started to move");
     }
 

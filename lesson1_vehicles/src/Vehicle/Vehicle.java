@@ -1,6 +1,9 @@
 package vehicle;
 
 import java.lang.Math;
+
+import exceptions.AgeException;
+import exceptions.InvalidDriverLicenseException;
 import passenger.Passenger;
 
 public abstract class Vehicle {
@@ -82,7 +85,7 @@ public abstract class Vehicle {
         this.driver = driver;
     }
 
-    public abstract void move();
+    public abstract void move() throws AgeException, InvalidDriverLicenseException;
 
     public void printVehicleInfo() {
         System.out.println("Name: " + this.getName());

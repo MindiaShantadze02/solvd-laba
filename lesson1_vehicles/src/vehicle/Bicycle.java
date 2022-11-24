@@ -1,5 +1,6 @@
 package vehicle;
 
+import exceptions.AgeException;
 import passenger.Passenger;
 
 import java.util.Objects;
@@ -54,9 +55,11 @@ public class Bicycle extends Vehicle {
                 '}';
     }
 
-    public void move() {
-        if (this.getDriver().getAge() > 18) {
-            System.out.println("Bicycle is moving");
+    public void move() throws AgeException {
+        if (this.getDriver().getAge() < 5) {
+            throw new AgeException("You must be at least 5 years old to drive a bicycle");
+        } else {
+            System.out.println("Riding the bicycle");
         }
     }
 }

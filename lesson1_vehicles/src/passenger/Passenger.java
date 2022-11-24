@@ -1,5 +1,7 @@
 package passenger;
 
+import java.util.Objects;
+
 public class Passenger {
     private String id;
     private String name;
@@ -68,5 +70,30 @@ public class Passenger {
 
     public void setDriverLicense(DriverLicense driverLicense) {
         this.driverLicense = driverLicense;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Passenger passenger = (Passenger) o;
+        return age == passenger.age && phoneNumber == passenger.phoneNumber && Objects.equals(id, passenger.id) && Objects.equals(name, passenger.name) && Objects.equals(lastName, passenger.lastName) && Objects.equals(driverLicense, passenger.driverLicense);
+    }
+
+    @Override
+    public String toString() {
+        return "Passenger{" +
+                "id='" + id + '\'' +
+                ", name='" + name + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", age=" + age +
+                ", phoneNumber=" + phoneNumber +
+                ", driverLicense=" + driverLicense +
+                '}';
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, name, lastName, age, phoneNumber, driverLicense);
     }
 }

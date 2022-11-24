@@ -10,7 +10,7 @@ public class Main {
         DriverLicense driverLicense = new DriverLicense("12345678910", "C", 2020, 2035);
         Passenger driver = new Passenger("12345678910", "Mindia", "Shantadze", 19, 599002211, driverLicense);
 
-        Car newCar = new Car("Audi", "some-model-92", 2002, 4, driver, 4, 100, 4);
+        Car audi = new Car("Audi", "some-model-92", 2002, 4, driver, 4, 100, 4);
 
     }
 }

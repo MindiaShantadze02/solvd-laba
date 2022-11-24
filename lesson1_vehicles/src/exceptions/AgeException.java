@@ -1,11 +1,11 @@
 package exceptions;
 
 public class AgeException extends Exception {
-    AgeException() {
+    public AgeException() {
         super("Invalid age");
     }
 
-    AgeException(String message) {
+    public AgeException(String message) {
         super(message);
     }
 }
