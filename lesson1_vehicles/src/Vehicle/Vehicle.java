@@ -10,7 +10,7 @@ public abstract class Vehicle {
     private String model;
     protected String type;
     private int releaseYear;
-    private Passenger owner;
+    private Passenger driver;
     private int maxPassengers;
     public Vehicle() {
         this.name = null;
@@ -18,7 +18,7 @@ public abstract class Vehicle {
         this.type = null;
         this.releaseYear = 0;
         this.maxPassengers = 0;
-        this.owner = null;
+        this.driver = null;
     }
 
     public Vehicle(String name, String model, int releaseYear, int maxPassengers, Passenger driver) {
@@ -26,7 +26,7 @@ public abstract class Vehicle {
         this.model = model;
         this.releaseYear = releaseYear;
         this.maxPassengers = maxPassengers;
-        this.owner = driver;
+        this.driver = driver;
     }
 
     public String getId() {
@@ -71,6 +71,15 @@ public abstract class Vehicle {
 
     public void setMaxPassengers(int maxPassengers) {
         this.maxPassengers = maxPassengers;
+    }
+
+
+    public Passenger getDriver() {
+        return driver;
+    }
+
+    public void setDriver(Passenger driver) {
+        this.driver = driver;
     }
 
     public abstract void move();

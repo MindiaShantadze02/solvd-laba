@@ -55,6 +55,8 @@ public class Bicycle extends Vehicle {
     }
 
     public void move() {
-        System.out.println("Bicycle is moving");
+        if (this.getDriver().getAge() > 18) {
+            System.out.println("Bicycle is moving");
+        }
     }
 }

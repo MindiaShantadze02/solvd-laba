@@ -5,7 +5,7 @@ public class Passenger {
     private String name;
     private String lastName;
     private int age;
-    private int phoneNumber;
+    private long phoneNumber;
     private DriverLicense driverLicense;
 
     public Passenger() {
@@ -54,7 +54,7 @@ public class Passenger {
         this.age = age;
     }
 
-    public int getPhoneNumber() {
+    public long getPhoneNumber() {
         return phoneNumber;
     }
 
