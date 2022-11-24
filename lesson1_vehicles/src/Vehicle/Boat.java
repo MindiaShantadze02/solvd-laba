@@ -2,6 +2,8 @@ package vehicle;
 
 import passenger.Passenger;
 
+import java.util.Objects;
+
 public class Boat extends Vehicle{
     private String boatType;
     private boolean isWooden;
@@ -12,8 +14,8 @@ public class Boat extends Vehicle{
         this.type = "Sea Vehicle";
     }
 
-    public Boat(String name, String model, int releaseYear, int maxPassengers, Passenger owner, String boatType, boolean isWooden) {
-        super(name, model, releaseYear, maxPassengers, owner);
+    public Boat(String name, String model, int releaseYear, int maxPassengers, Passenger driver, String boatType, boolean isWooden) {
+        super(name, model, releaseYear, maxPassengers, driver);
         this.boatType = boatType;
         this.isWooden = isWooden;
         this.type = "Sea Vehicle";
@@ -21,5 +23,28 @@ public class Boat extends Vehicle{
 
     public void move() {
         System.out.println("Boat started swimming");
+    }
+
+    @Override
+    public String toString() {
+        return "Boat{" +
+                "boatType='" + boatType + '\'' +
+                ", isWooden=" + isWooden +
+                ", id='" + id + '\'' +
+                ", type='" + type + '\'' +
+                '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Boat boat = (Boat) o;
+        return isWooden == boat.isWooden && Objects.equals(boatType, boat.boatType);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(boatType, isWooden);
     }
 }

@@ -21,12 +21,12 @@ public abstract class Vehicle {
         this.owner = null;
     }
 
-    public Vehicle(String name, String model, int releaseYear, int maxPassengers, Passenger owner) {
+    public Vehicle(String name, String model, int releaseYear, int maxPassengers, Passenger driver) {
         this.name = name;
         this.model = model;
         this.releaseYear = releaseYear;
         this.maxPassengers = maxPassengers;
-        this.owner = owner;
+        this.owner = driver;
     }
 
     public String getId() {
