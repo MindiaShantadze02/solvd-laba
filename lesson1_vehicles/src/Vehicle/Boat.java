@@ -2,11 +2,12 @@ package vehicle;
 
 import exceptions.AgeException;
 import exceptions.InvalidDriverLicenseException;
+import interfaces.Swimable;
 import passenger.Passenger;
 
 import java.util.Objects;
 
-public class Boat extends Vehicle{
+public class Boat extends Vehicle implements Swimable {
     private String boatType;
     private boolean isWooden;
 
@@ -16,15 +17,15 @@ public class Boat extends Vehicle{
         this.type = "Sea Vehicle";
     }
 
-    public Boat(String name, String model, int releaseYear, int maxPassengers, Passenger driver, String boatType, boolean isWooden) {
-        super(name, model, releaseYear, maxPassengers, driver);
+    public Boat(String name, String model, int releaseYear, int maxPassengers, String boatType, boolean isWooden) {
+        super(name, model, releaseYear, maxPassengers);
         this.boatType = boatType;
         this.isWooden = isWooden;
-        this.type = "Sea Vehicle";
     }
 
-    public void move() throws AgeException, InvalidDriverLicenseException {
-        String type = this.getDriver().getDriverLicense().getType();
+    @Override
+    public void move(Passenger driver) throws AgeException, InvalidDriverLicenseException {
+        String type = driver.getDriverLicense().getType();
 
         if (this.getDriver().getAge() < 30) {
             throw new AgeException("Driver is too young for driving boat");
@@ -56,5 +57,9 @@ public class Boat extends Vehicle{
     @Override
     public int hashCode() {
         return Objects.hash(boatType, isWooden);
+    }
+
+    public void swim() {
+        System.out.println("Hello I started swimming");
     }
 }

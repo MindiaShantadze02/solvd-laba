@@ -18,18 +18,16 @@ public abstract class Vehicle {
     public Vehicle() {
         this.name = null;
         this.model = null;
-        this.type = null;
         this.releaseYear = 0;
         this.maxPassengers = 0;
         this.driver = null;
     }
 
-    public Vehicle(String name, String model, int releaseYear, int maxPassengers, Passenger driver) {
+    public Vehicle(String name, String model, int releaseYear, int maxPassengers) {
         this.name = name;
         this.model = model;
         this.releaseYear = releaseYear;
         this.maxPassengers = maxPassengers;
-        this.driver = driver;
     }
 
     public String getId() {
@@ -48,10 +46,6 @@ public abstract class Vehicle {
         return releaseYear;
     }
 
-    public String getType(){
-        return this.type;
-    };
-
     public void setName(String name) {
         this.name = name;
     }
@@ -62,10 +56,6 @@ public abstract class Vehicle {
 
     public void setReleaseYear(int releaseYear) {
         this.releaseYear = releaseYear;
-    }
-
-    public void setType(String type) {
-        this.type = type;
     }
 
     public int getMaxPassengers() {
@@ -85,11 +75,10 @@ public abstract class Vehicle {
         this.driver = driver;
     }
 
-    public abstract void move() throws AgeException, InvalidDriverLicenseException;
+    public abstract void move(Passenger driver) throws AgeException, InvalidDriverLicenseException;
 
     public void printVehicleInfo() {
         System.out.println("Name: " + this.getName());
         System.out.println("Model: " + this.getModel());
-        System.out.println("Type: " + this.getType());
     }
 }

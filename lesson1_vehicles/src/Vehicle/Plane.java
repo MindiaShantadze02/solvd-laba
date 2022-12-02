@@ -1,14 +1,13 @@
 package vehicle;
 
+import interfaces.Flyable;
 import passenger.Passenger;
 
 import java.util.Objects;
 
-public class Plane extends Vehicle {
+public class Plane extends Vehicle implements Flyable {
     private double maxFlyingHeight;
-
     public Plane() {
-        this.type = "Flying Vehicle";
         this.maxFlyingHeight = 0;
     }
 
@@ -16,13 +15,9 @@ public class Plane extends Vehicle {
             String name,
             String model,
             int releaseYear,
-            int maxPassengers,
-            Passenger driver,
-            double maxFlyingHeight
+            int maxPassengers
     ) {
-        super(name, model, releaseYear, maxPassengers, driver);
-        this.type = "Flying Vehicle";
-        this.maxFlyingHeight = maxFlyingHeight;
+        super(name, model, releaseYear, maxPassengers);
     }
 
     public double getMaxFlyingHeight() {
@@ -33,7 +28,7 @@ public class Plane extends Vehicle {
         this.maxFlyingHeight = maxFlyingHeight;
     }
 
-    public void move() {
+    public void move(Passenger driver) {
         System.out.println("The plane is flying");
     }
 
@@ -55,7 +50,13 @@ public class Plane extends Vehicle {
         return "Plane{" +
                 "maxFlyingHeight=" + maxFlyingHeight +
                 ", id='" + id + '\'' +
-                ", type='" + type + '\'' +
                 '}';
+    }
+
+    public void fly() {
+        System.out.println("plane is flying");
+    }
+    public void land() {
+        System.out.println("Plane is landing on the airport");
     }
 }

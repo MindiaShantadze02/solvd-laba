@@ -1,15 +1,15 @@
 package vehicle;
 
 import exceptions.AgeException;
+import interfaces.Driveable;
 import passenger.Passenger;
 
 import java.util.Objects;
 
-public class Bicycle extends Vehicle {
+public class Bicycle extends Vehicle implements Driveable {
     private int speedOptions;
 
     public Bicycle() {
-        this.type = "Ground Vehicle";
         this.speedOptions = 0;
     }
     public Bicycle(
@@ -17,11 +17,9 @@ public class Bicycle extends Vehicle {
             String model,
             int releaseYear,
             int maxPassengers,
-            Passenger driver,
             int speedOptions
     ) {
-        super(name, model, releaseYear, maxPassengers, driver);
-        this.type = "Ground Vehicle";
+        super(name, model, releaseYear, maxPassengers);
         this.speedOptions = speedOptions;
     }
 
@@ -51,15 +49,22 @@ public class Bicycle extends Vehicle {
         return "Bicycle{" +
                 "speedOptions=" + speedOptions +
                 ", id='" + id + '\'' +
-                ", type='" + type + '\'' +
                 '}';
     }
 
-    public void move() throws AgeException {
-        if (this.getDriver().getAge() < 5) {
+    public void move(Passenger driver) throws AgeException {
+        if (driver.getAge() < 5) {
             throw new AgeException("You must be at least 5 years old to drive a bicycle");
         } else {
             System.out.println("Riding the bicycle");
         }
+    }
+
+    public void honk() {
+        System.out.println("Peep peep");
+    }
+
+    public void drift() {
+        System.out.println("Bicycle started drifting");
     }
 }

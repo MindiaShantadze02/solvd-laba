@@ -1,11 +1,12 @@
 package vehicle;
 
 import exceptions.AgeException;
+import interfaces.Driveable;
 import passenger.Passenger;
 
 import java.util.Objects;
 
-public class Car extends Vehicle{
+public class Car extends Vehicle implements Driveable {
     private int wheelCount;
     private int horsePower;
     private int doorNumber;
@@ -14,15 +15,13 @@ public class Car extends Vehicle{
         this.wheelCount = 0;
         this.horsePower = 0;
         this.doorNumber = 0;
-        this.type = "Ground Vehicle";
     }
 
-    public Car(String name, String model, int releaseYear, int maxPassengers, Passenger driver, int wheelCount, int horsePower, int doorNumber) {
-        super(name, model, releaseYear, maxPassengers, driver);
+    public Car(String name, String model, int releaseYear, int maxPassengers, int wheelCount, int horsePower, int doorNumber) {
+        super(name, model, releaseYear, maxPassengers);
         this.wheelCount = wheelCount;
         this.horsePower = horsePower;
         this.doorNumber = doorNumber;
-        this.type = "Ground Vehicle";
     }
 
     public int getHorsePower() {
@@ -49,8 +48,8 @@ public class Car extends Vehicle{
         this.wheelCount = wheelCount;
     }
 
-    public void move() throws AgeException {
-        if (this.getDriver().getAge() < 18) {
+    public void move(Passenger driver) throws AgeException {
+        if (driver.getAge() < 18) {
             throw new AgeException("Driver should be at least 18 years old");
         }
 
@@ -72,7 +71,6 @@ public class Car extends Vehicle{
                 ", horsePower=" + horsePower +
                 ", doorNumber=" + doorNumber +
                 ", id='" + id + '\'' +
-                ", type='" + type + '\'' +
                 '}';
     }
 
@@ -81,4 +79,11 @@ public class Car extends Vehicle{
         return Objects.hash(wheelCount, horsePower, doorNumber);
     }
 
+    public void honk() {
+        System.out.println("Beep beep!");
+    }
+
+    public void drift() {
+        System.out.println("Tires started burning");
+    }
 }
