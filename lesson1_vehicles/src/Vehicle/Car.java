@@ -49,7 +49,7 @@ public class Car extends Vehicle implements Driveable {
     }
 
     public void move(Passenger driver) throws AgeException {
-        if (driver.getAge() < 18) {
+        if (driver.getAge() < 17) {
             throw new AgeException("Driver should be at least 18 years old");
         }
 

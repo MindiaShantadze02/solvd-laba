@@ -27,7 +27,7 @@ public class Boat extends Vehicle implements Swimable {
     public void move(Passenger driver) throws AgeException, InvalidDriverLicenseException {
         String type = driver.getDriverLicense().getType();
 
-        if (this.getDriver().getAge() < 30) {
+        if (driver.getAge() < 30) {
             throw new AgeException("Driver is too young for driving boat");
         } else if (type != "Sea Vehicle") {
             throw new InvalidDriverLicenseException("The driver is not qualified for driving sea vehicles");

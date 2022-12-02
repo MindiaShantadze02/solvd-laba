@@ -1,5 +1,7 @@
 package vehicle;
 
+import exceptions.AgeException;
+import exceptions.InvalidDriverLicenseException;
 import interfaces.Flyable;
 import passenger.Passenger;
 
@@ -28,10 +30,6 @@ public class Plane extends Vehicle implements Flyable {
         this.maxFlyingHeight = maxFlyingHeight;
     }
 
-    public void move(Passenger driver) {
-        System.out.println("The plane is flying");
-    }
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -58,5 +56,17 @@ public class Plane extends Vehicle implements Flyable {
     }
     public void land() {
         System.out.println("Plane is landing on the airport");
+    }
+
+    public void move(Passenger driver) throws AgeException, InvalidDriverLicenseException {
+        String driverLicenseType = driver.getDriverLicense().getType();
+
+        if (driver.getAge() < 25) {
+            throw new AgeException("Driver must be at least 25 years old");
+        } else if (driverLicenseType == "Flying Vehicle") {
+            throw new InvalidDriverLicenseException("Driver should have flying vehicle type");
+        } else {
+            System.out.println("Plane started moving");
+        }
     }
 }

@@ -13,10 +13,8 @@ public class Main {
 
         Bicycle newBicycle = new Bicycle("BMX", "b-model-2134", 2000, 2, 21);
         Car newCar = new Car("Mercedes", "SLS", 2012, 2, 4, 50, 2);
-        Plane newPlane = new Plane("Boeing", "some-model", 2000, 40);
 
         newBicycle.move(driver);
         newCar.move(driver);
-        newPlane.move(driver);
     }
 }
