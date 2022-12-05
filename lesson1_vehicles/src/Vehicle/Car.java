@@ -10,7 +10,7 @@ import passenger.Passenger;
 import java.util.Objects;
 
 public class Car extends Vehicle implements Driveable, Honkable {
-    private static final Logger logger = LogManager.getLogger(Vehicle.class);
+    private static final Logger LOGGER = LogManager.getLogger(Vehicle.class);
     private int wheelCount;
     private int horsePower;
     private int doorNumber;
@@ -53,11 +53,15 @@ public class Car extends Vehicle implements Driveable, Honkable {
     }
 
     public void move(Passenger driver) throws AgeException {
-        if (driver.getAge() < 17) {
-            throw new AgeException("Driver should be at least 18 years old");
+        try {
+            if (driver.getAge() < 17) {
+                throw new AgeException("Driver should be at least 18 years old");
+            }
+        } catch(AgeException e) {
+            LOGGER.error(e.getMessage());
         }
 
-        System.out.println("Car started to move");
+        LOGGER.info("Car started to move");
     }
 
     @Override
@@ -89,9 +93,9 @@ public class Car extends Vehicle implements Driveable, Honkable {
 
     public void drift() {
         try {
-            System.out.println("Tires started burning");
+            LOGGER.info("Tires started burning");
         } catch(Exception e) {
-            logger.error(e.getMessage());
+            LOGGER.error(e.getMessage());
         }
     }
 }
