@@ -2,11 +2,15 @@ package vehicle;
 
 import exceptions.AgeException;
 import interfaces.Driveable;
+import interfaces.Honkable;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import passenger.Passenger;
 
 import java.util.Objects;
 
-public class Bicycle extends Vehicle implements Driveable {
+public class Bicycle extends Vehicle implements Driveable, Honkable {
+    private static final Logger logger = LogManager.getLogger(Bicycle.class);
     private int speedOptions;
 
     public Bicycle() {

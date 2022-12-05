@@ -8,13 +8,15 @@ import vehicle.Plane;
 
 public class Main {
     public static void main(String[] args) throws AgeException {
-        DriverLicense driverLicense = new DriverLicense("12345678910", "Ground Vehicle", 2020, 2040);
-        Passenger driver = new Passenger("12345678910" ,"Mindia", "Shantadze", 20, 595024140, driverLicense);
-
-        Bicycle newBicycle = new Bicycle("BMX", "b-model-2134", 2000, 2, 21);
-        Car newCar = new Car("Mercedes", "SLS", 2012, 2, 4, 50, 2);
-
-        newBicycle.move(driver);
-        newCar.move(driver);
+        ObjectSandbox obj = new ObjectSandbox("Mindia", "Shantadze");
+        obj.logger.info("HELLO");
+//        DriverLicense driverLicense = new DriverLicense("12345678910", "Ground Vehicle", 2020, 2040);
+//        Passenger driver = new Passenger("12345678910" ,"Mindia", "Shantadze", 20, 595024140, driverLicense);
+//
+//        Bicycle newBicycle = new Bicycle("BMX", "b-model-2134", 2000, 2, 21);
+//        Car newCar = new Car("Mercedes", "SLS", 2012, 2, 4, 50, 2);
+//
+//        newBicycle.move(driver);
+//        newCar.move(driver);
     }
 }

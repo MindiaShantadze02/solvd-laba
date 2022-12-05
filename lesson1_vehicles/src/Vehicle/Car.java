@@ -2,11 +2,15 @@ package vehicle;
 
 import exceptions.AgeException;
 import interfaces.Driveable;
+import interfaces.Honkable;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import passenger.Passenger;
 
 import java.util.Objects;
 
-public class Car extends Vehicle implements Driveable {
+public class Car extends Vehicle implements Driveable, Honkable {
+    private static final Logger logger = LogManager.getLogger(Vehicle.class);
     private int wheelCount;
     private int horsePower;
     private int doorNumber;
@@ -84,6 +88,10 @@ public class Car extends Vehicle implements Driveable {
     }
 
     public void drift() {
-        System.out.println("Tires started burning");
+        try {
+            System.out.println("Tires started burning");
+        } catch(Exception e) {
+            logger.error(e.getMessage());
+        }
     }
 }

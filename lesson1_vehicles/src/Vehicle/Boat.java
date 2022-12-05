@@ -3,11 +3,14 @@ package vehicle;
 import exceptions.AgeException;
 import exceptions.InvalidDriverLicenseException;
 import interfaces.Swimable;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import passenger.Passenger;
 
 import java.util.Objects;
 
 public class Boat extends Vehicle implements Swimable {
+    private static final Logger logger = LogManager.getLogger(Vehicle.class);
     private String boatType;
     private boolean isWooden;
 
@@ -60,6 +63,10 @@ public class Boat extends Vehicle implements Swimable {
     }
 
     public void swim() {
-        System.out.println("Hello I started swimming");
+        try {
+            System.out.println("Hello I started swimming");
+        } catch (Exception e) {
+
+        }
     }
 }
