@@ -4,10 +4,13 @@ import java.lang.Math;
 
 import exceptions.AgeException;
 import exceptions.InvalidDriverLicenseException;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import passenger.Passenger;
 
 public abstract class Vehicle {
     // initializing fields
+    private static final Logger LOGGER = LogManager.getLogger(Vehicle.class);
     protected final String id = Integer.toString((int)(Math.random() * 10 * 10 * 10) * 1000);
     private String name;
     private String model;
@@ -78,7 +81,7 @@ public abstract class Vehicle {
     public abstract void move(Passenger driver) throws AgeException, InvalidDriverLicenseException;
 
     public void printVehicleInfo() {
-        System.out.println("Name: " + this.getName());
-        System.out.println("Model: " + this.getModel());
+        LOGGER.info("Name: " + this.getName());
+        LOGGER.info("Model: " + this.getModel());
     }
 }
