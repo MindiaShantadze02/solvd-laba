@@ -1,10 +1,8 @@
 import exceptions.AgeException;
-import passenger.DriverLicense;
-import passenger.Passenger;
-import playground.ObjectSandbox;
-import vehicle.Bicycle;
-import vehicle.Car;
-import vehicle.Plane;
+import vehicle_theme.passenger.DriverLicense;
+import vehicle_theme.passenger.Passenger;
+import vehicle_theme.vehicle.Bicycle;
+import vehicle_theme.vehicle.Car;
 
 public class Main {
     public static void main(String[] args) throws AgeException {

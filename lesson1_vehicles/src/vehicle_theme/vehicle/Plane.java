@@ -1,9 +1,9 @@
-package vehicle;
+package vehicle_theme.vehicle;
 
 import exceptions.AgeException;
 import exceptions.InvalidDriverLicenseException;
 import interfaces.Flyable;
-import passenger.Passenger;
+import vehicle_theme.passenger.Passenger;
 
 import java.util.Objects;
 
@@ -64,7 +64,7 @@ public class Plane extends Vehicle implements Flyable {
         if (driver.getAge() < 25) {
             throw new AgeException("Driver must be at least 25 years old");
         } else if (driverLicenseType == "Flying Vehicle") {
-            throw new InvalidDriverLicenseException("Driver should have flying vehicle type");
+            throw new InvalidDriverLicenseException("Driver should have flying vehicle_theme.vehicle type");
         } else {
             System.out.println("Plane started moving");
         }

@@ -1,11 +1,11 @@
-package vehicle;
+package vehicle_theme.vehicle;
 
 import exceptions.AgeException;
 import exceptions.InvalidDriverLicenseException;
 import interfaces.Flyable;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import passenger.Passenger;
+import vehicle_theme.passenger.Passenger;
 
 public final class Helicopter extends Vehicle implements Flyable {
     private static final Logger LOGGER = LogManager.getLogger(Helicopter.class);

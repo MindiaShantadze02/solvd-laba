@@ -1,4 +1,4 @@
-package passenger;
+package vehicle_theme.passenger;
 
 import java.util.Objects;
 

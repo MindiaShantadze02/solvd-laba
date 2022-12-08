@@ -1,4 +1,4 @@
-package passenger;
+package vehicle_theme.passenger;
 
 public class DriverLicense {
     private String personId;
