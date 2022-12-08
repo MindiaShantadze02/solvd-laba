@@ -1,6 +1,7 @@
 package vehicle_theme.garage;
 
 import exceptions.InvalidVehicleCountException;
+import exceptions.VehicleNotFoundException;
 import interfaces.IGarage;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -27,7 +28,18 @@ public class Garage implements IGarage {
     }
 
     @Override
-    public void removeVehicle(String vehicleName) {
+    public void removeVehicle(String vehicleName) throws VehicleNotFoundException {
+        try {
+            for (Vehicle vehicle: vehicles) {
+                if (vehicle.getName() == vehicleName) {
+                    vehicles.remove(vehicle);
+                    return;
+                }
+            }
 
+            throw new VehicleNotFoundException("Vehicle with name " + vehicleName + " couldn't be found");
+        } catch (VehicleNotFoundException e) {
+            LOGGER.error(e.getMessage());
+        }
     }
 }
