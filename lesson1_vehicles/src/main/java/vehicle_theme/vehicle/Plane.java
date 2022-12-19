@@ -1,5 +1,6 @@
 package vehicle_theme.vehicle;
 
+import enums.VehicleType;
 import exceptions.AgeException;
 import exceptions.InvalidDriverLicenseException;
 import interfaces.Flyable;
@@ -20,6 +21,7 @@ public class Plane extends Vehicle implements Flyable {
             int maxPassengers
     ) {
         super(name, model, releaseYear, maxPassengers);
+        this.type = VehicleType.SKY_VEHICLE;
     }
 
     public double getMaxFlyingHeight() {

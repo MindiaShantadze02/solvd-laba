@@ -1,5 +1,6 @@
 package vehicle_theme.vehicle;
 
+import enums.VehicleType;
 import exceptions.AgeException;
 import interfaces.Driveable;
 import interfaces.Honkable;
@@ -26,6 +27,7 @@ public class Car extends Vehicle implements Driveable, Honkable {
         this.wheelCount = wheelCount;
         this.horsePower = horsePower;
         this.doorNumber = doorNumber;
+        this.type = VehicleType.GROUND_VEHICLE;
     }
 
     public int getHorsePower() {

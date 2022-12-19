@@ -3,6 +3,7 @@ package vehicle_theme.vehicle;
 import java.lang.Math;
 import java.util.HashMap;
 
+import enums.VehicleType;
 import exceptions.AgeException;
 import exceptions.InvalidDriverLicenseException;
 import exceptions.InvalidPassengerCountException;
@@ -18,9 +19,9 @@ public abstract class Vehicle {
     private HashMap<Integer, Passenger> passengers;
     private String name;
     private String model;
-    protected String type;
     private int releaseYear;
     private Passenger driver;
+    protected VehicleType type;
     private int passengerCount = 0;
     private int maxPassengers;
     public Vehicle() {
@@ -77,6 +78,10 @@ public abstract class Vehicle {
 
     public Passenger getDriver() {
         return driver;
+    }
+
+    public VehicleType getType() {
+        return type;
     }
 
     public void setDriver(Passenger driver) {

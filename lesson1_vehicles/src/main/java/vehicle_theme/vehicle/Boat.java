@@ -1,5 +1,6 @@
 package vehicle_theme.vehicle;
 
+import enums.VehicleType;
 import exceptions.AgeException;
 import exceptions.InvalidDriverLicenseException;
 import interfaces.Swimable;
@@ -17,7 +18,7 @@ public class Boat extends Vehicle implements Swimable {
     public Boat() {
         this.boatType = null;
         this.isWooden = false;
-        this.type = "Sea Vehicle";
+        this.type = VehicleType.SEA_VEHICLE;
     }
 
     public Boat(String name, String model, int releaseYear, int maxPassengers, String boatType, boolean isWooden) {

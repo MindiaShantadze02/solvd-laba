@@ -1,5 +1,6 @@
 package vehicle_theme.vehicle;
 
+import enums.VehicleType;
 import exceptions.AgeException;
 import interfaces.Driveable;
 import interfaces.Honkable;
@@ -25,6 +26,7 @@ public class Bicycle extends Vehicle implements Driveable, Honkable {
     ) {
         super(name, model, releaseYear, maxPassengers);
         this.speedOptions = speedOptions;
+        this.type = VehicleType.GROUND_VEHICLE;
     }
 
     public int getSpeedOptions() {

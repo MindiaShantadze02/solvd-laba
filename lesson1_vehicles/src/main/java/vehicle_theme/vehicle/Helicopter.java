@@ -1,5 +1,6 @@
 package vehicle_theme.vehicle;
 
+import enums.VehicleType;
 import exceptions.AgeException;
 import exceptions.InvalidDriverLicenseException;
 import interfaces.Flyable;
@@ -15,6 +16,11 @@ public final class Helicopter extends Vehicle implements Flyable {
 
     public void land() {
         LOGGER.info("Helicopter is landing on H sign");
+    }
+
+    public Helicopter(String name, String model, int releaseYear, int maxPassengers) {
+        super(name, model, releaseYear, maxPassengers);
+        this.type = VehicleType.SKY_VEHICLE;
     }
 
     @Override
