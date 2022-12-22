@@ -1,12 +1,14 @@
+import random.Collections;
 import enums.VehicleType;
-import exceptions.AgeException;
-import exceptions.InvalidVehicleCountException;
+import random.ReflectionObject;
 import vehicle_theme.garage.Garage;
 import vehicle_theme.passenger.DriverLicense;
 import vehicle_theme.passenger.Passenger;
 import vehicle_theme.vehicle.Bicycle;
 import vehicle_theme.vehicle.Car;
 import vehicle_theme.vehicle.Plane;
+
+import java.lang.reflect.Method;
 
 public class Main {
     public static void main(String[] args) throws Exception {
@@ -26,5 +28,19 @@ public class Main {
         newGarage.searchVehicles(vehicle -> {
             return (vehicle.getType() == VehicleType.SKY_VEHICLE);
         });
+
+        Collections c = new Collections();
+        c.doSomething();
+
+        ReflectionObject o = new ReflectionObject("Hello", "World");
+        o.getFieldsAndMethods();
+
+        Method[] oMethods = o.getClass().getDeclaredMethods();
+        for (Method method : oMethods) {
+            if (method.getName().equals("printPerson")) {
+                method.setAccessible(true);
+                method.invoke(o);
+            }
+        }
     }
 }

@@ -76,7 +76,7 @@ public class Garage implements IGarage {
         }
     }
 
-    public void searchVehicles(ISearchVehicle query) {
+    public void searchVehicles(ISearchVehicle<Vehicle> query) {
         try {
             int vCount = 0;
 
